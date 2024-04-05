@@ -24,7 +24,7 @@ def playground():
         tests = json_data["tests"]
         func_name = json_data["func_name"]
     except KeyError:
-        return {"message": "Key \"lang\" or \"code\" or \"tests\" are not present"}, 400
+        return {"status": "failed", "test_results": [], "message": "Key \"lang\" or \"code\" or \"tests\" are not present"}, 400
 
     try:
         result = execute(lang, code, func_name, tests)
@@ -36,7 +36,7 @@ def playground():
         }), 200
     except Exception as e:
         logger.error(f'Error occured: {e}')
-        return jsonify({"message": "Internal server error"}), 500
+        return jsonify({"status": "failed", "test_results": [], "message": "Internal server error"}), 500
 
 
 @bp.route('/describe', methods=['GET'])
