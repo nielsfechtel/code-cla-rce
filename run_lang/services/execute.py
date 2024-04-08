@@ -1,11 +1,9 @@
-from cgi import test
 import json
 import subprocess as sp
 import tempfile
 import os
 import shutil
 from pathlib import Path
-from .describe import get_server_lang
 from .testparsers import parse_jest_report, parse_pytest_report
 
 HOME = os.environ["HOME"]
@@ -193,15 +191,14 @@ def execute_rust(code):
 
 
 def execute(lang, code, func_name, tests):
-    if lang != get_server_lang():
-        raise Exception(f"Language not suppported {lang}")
     if lang == "py":
         return execute_python(code, func_name, tests)
     if lang == "js":
         return execute_javascript(code, func_name, tests)
-    if lang == "cpp":
-        return execute_cpp(code, func_name, tests)
-    if lang == "rust":
-        return execute_rust(code, func_name, tests)
-    else:
-        raise Exception(f"Language not suppported {lang}")
+    raise Exception(f"Language {lang} not suppported now")
+    # if lang == "cpp":
+    #     return execute_cpp(code, func_name, tests)
+    # if lang == "rust":
+    #     return execute_rust(code, func_name, tests)
+    # else:
+    #     raise Exception(f"Language not suppported {lang}")

@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, Blueprint
 from run_lang.services.execute import execute, InvalidCode
-from run_lang.services.describe import get_ubuntu, get_description
+from run_lang.services.describe import get_ubuntu
 import logging
 
 # Configure logging
@@ -38,13 +38,6 @@ def playground():
         logger.error(f'Error occured: {e}')
         return jsonify({"status": "failed", "test_results": [], "message": "Internal server error"}), 500
 
-
-@bp.route('/describe', methods=['GET'])
-def describe():
-    return jsonify({
-        "ubuntu": get_ubuntu(),
-        "description": get_description(),
-    })
 
 
 def create_app(*args, **kwargs):
