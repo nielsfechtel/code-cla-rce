@@ -41,3 +41,29 @@ A test is:
     ]
 }
 ```
+### Example answer:
+```JSON
+{
+    "status": "passed",
+    "test_results": [
+        {
+            "message": "",
+            "status": "passed",
+            "test_id": "1234654654654d",
+            "time": 4
+        },
+        {
+            "message": "",
+            "status": "passed",
+            "test_id": "1234654654654",
+            "time": 0
+        },
+        {
+            "message": "",
+            "status": "passed",
+            "test_id": "12346546544d",
+            "time": 0
+        }
+    ]
+}
+```
