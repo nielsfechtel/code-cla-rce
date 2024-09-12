@@ -18,33 +18,23 @@ A test is:
 
 ### Example request:
 ```JSON
-{
-    "lang": "js",
-    "code": "function factorial(n) {\n    if (n === 0) return 1;\n    return n * factorial(n - 1);\n}",
-    "func_name": "factorial",
-    "tests": [
-        {
-            "_id": "1234654654654d",
-            "inputs": [{ "value": 1 }],
-            "output": 1
-        },
-        {
-            "_id": "1234654654654",
-            "inputs": [{ "value": 5 }],
-            "output": 120
-        },
-        {
-            "_id": "12346546544d",
-            "inputs": [{ "value": 4 }],
-            "output": 24
-        }
-    ]
-}
+## Dockerization
+To build the docker image run the following:
+
 ```
+docker build -t run_lang .
+```
+
+To run it:
+```
+docker run -p 5000:5000 --name runlang runlang:v1
+```
+
 ### Example answer:
-```JSON
+```json
 {
     "status": "passed",
+    "message": "<message here>",
     "test_results": [
         {
             "message": "",
@@ -56,7 +46,7 @@ A test is:
             "message": "",
             "status": "passed",
             "test_id": "1234654654654",
-            "time": 0
+            "time": 1
         },
         {
             "message": "",
@@ -66,4 +56,4 @@ A test is:
         }
     ]
 }
-```
+
