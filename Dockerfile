@@ -24,7 +24,7 @@ RUN echo 0
 RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 RUN apt-get install -y nodejs
 RUN npm install -g jest
-RUN npm install -g jest-json-repoter
+RUN npm install -g jest-json-reporter
 COPY registry/javascript/packages /packages
 COPY registry/javascript/template /template
 
