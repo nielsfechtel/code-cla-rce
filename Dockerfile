@@ -40,5 +40,5 @@ COPY start_run_lang.sh /start_run_lang.sh
 
 WORKDIR /
 
-ENTRYPOINT ["./start_run_lang.sh"]
+ENTRYPOINT ["sh", "./start_run_lang.sh"]
 

@@ -3,7 +3,7 @@
 Package `run_lang` executes code in a language.
 
 ## Request format
-POST to "/"
+POST to "/run"
 
 In Body, the following fields are required:
 - lang: "js" or "py" (JavaScript or Python)
@@ -12,7 +12,7 @@ In Body, the following fields are required:
 - tests: an array of test-objects
 
 A test is:
-- _id: optional? 
+- _id: optional?
 - inputs: array of objects like [{ "value": 1 }, { "value": 11 }]
 - "output": the output-value, e.g. 1 or "one"
 
